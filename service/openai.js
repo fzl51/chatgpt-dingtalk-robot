@@ -9,6 +9,7 @@ export class OpenAI {
     #openai = null;
 
     constructor() {
+        // this.#configuration = new Configuration( {apiKey: process.env.OPENAI_API_KEY,basePath:'https://chatgpt-chatgpt-bgqsalabpn.us-west-1.fcapp.run/v1'} );
         this.#configuration = new Configuration( {apiKey: process.env.OPENAI_API_KEY} );
         this.#openai = new OpenAIApi(this.#configuration);
     }
@@ -29,6 +30,7 @@ export class OpenAI {
         catch(error) {
             console.log("OpenAI happen error!");
             console.log(error?.response?.data?.error);
+            console.log(error.message?error.message:error.code);
         }
     }
 
